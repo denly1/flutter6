@@ -186,28 +186,16 @@ class BattleshipGame {
     final duration = gameEndTime!.difference(gameStartTime!);
     final winner = aiBoard.allShipsSunk() ? 'Игрок' : 'ИИ';
     
-    print('\n╔═══════════════════════════════════════════════════════════╗');
-    print('║                    ИТОГОВАЯ СТАТИСТИКА                   ║');
-    print('╠═══════════════════════════════════════════════════════════╣');
-    print('║ Победитель: $winner                                      ║');
-    print('║ Продолжительность игры: ${duration.inMinutes}м ${duration.inSeconds % 60}с              ║');
-    print('╠═══════════════════════════════════════════════════════════╣');
-    print('║                      ИГРОК                               ║');
-    print('║ Всего выстрелов:      $playerShots                              ║');
-    print('║ Попаданий:            $playerHits                              ║');
-    print('║ Промахов:             $playerMisses                              ║');
-    print('║ Точность:             ${playerShots > 0 ? (playerHits / playerShots * 100).toStringAsFixed(1) : 0}%                          ║');
-    print('║ Потоплено кораблей:   ${aiBoard.sunkShips}/10                          ║');
-    print('║ Осталось кораблей:    ${10 - playerBoard.sunkShips}/10                          ║');
-    print('╠═══════════════════════════════════════════════════════════╣');
-    print('║                    ПРОТИВНИК (ИИ)                        ║');
-    print('║ Всего выстрелов:      $aiShots                              ║');
-    print('║ Попаданий:            $aiHits                              ║');
-    print('║ Промахов:             $aiMisses                              ║');
-    print('║ Точность:             ${aiShots > 0 ? (aiHits / aiShots * 100).toStringAsFixed(1) : 0}%                          ║');
-    print('║ Потоплено кораблей:   ${playerBoard.sunkShips}/10                          ║');
-    print('║ Осталось кораблей:    ${10 - aiBoard.sunkShips}/10                          ║');
-    print('╚═══════════════════════════════════════════════════════════╝');
+    print('\n╔════════════════════════════════════════════════════════╗');
+    print('║              ИТОГОВАЯ СТАТИСТИКА                      ║');
+    print('╠════════════════════════════════════════════════════════╣');
+    print('║ Победитель: $winner | Время: ${duration.inMinutes}м ${duration.inSeconds % 60}с                  ║');
+    print('╠════════════════════════════════════════════════════════╣');
+    print('║ ИГРОК: Выстрелов $playerShots | Попаданий $playerHits | Промахов $playerMisses        ║');
+    print('║        Точность ${playerShots > 0 ? (playerHits / playerShots * 100).toStringAsFixed(1) : 0}% | Потоплено ${aiBoard.sunkShips}/10 | Осталось ${10 - playerBoard.sunkShips}/10      ║');
+    print('╠════════════════════════════════════════════════════════╣');
+    print('║ ИИ: Выстрелов $aiShots | Попаданий $aiHits | Промахов $aiMisses | Точность ${aiShots > 0 ? (aiHits / aiShots * 100).toStringAsFixed(1) : 0}% ║');
+    print('╚════════════════════════════════════════════════════════╝');
     
     await _saveStatsToFile(winner, duration);
   }
