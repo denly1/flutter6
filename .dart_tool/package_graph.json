@@ -1,0 +1,21 @@
+{
+  "roots": [
+    "morskoyboy"
+  ],
+  "packages": [
+    {
+      "name": "morskoyboy",
+      "version": "2.0.0",
+      "dependencies": [],
+      "devDependencies": [
+        "lints"
+      ]
+    },
+    {
+      "name": "lints",
+      "version": "2.1.1",
+      "dependencies": []
+    }
+  ],
+  "configVersion": 1
+}
